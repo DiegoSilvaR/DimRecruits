@@ -1,0 +1,90 @@
+<div class="container col-lg-8 align-items-center justify-content-center mt-5">
+  <div class="card bg-gradient text-white shadow-lg rounded-4" style="background-color:#272727">
+  <div class="text-center mt-2">
+  <h1>Nuevo Candidato</h1>
+  </div>
+
+    <div class="card-body text-center">
+      <% if candidate.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(candidate.errors.count, "error") %> prohibieron guardar a este candidato:</h2>
+          <ul>
+            <% candidate.errors.each do |attribute, message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for(candidate) do |form| %>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :email, "Correo electrónico" %>
+              <div class="input-group">
+                <i class="fas fa-envelope fa-2x mx-2"></i>
+                <%= form.email_field :email, class: "form-control rounded-pill bg-transparent border-0" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :password, "Contraseña" %>
+              <div class="input-group">
+                <i class="fas fa-lock fa-2x mx-2"></i>
+                <%= form.password_field :password, class: "form-control rounded-pill  border-0" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :name, "Nombre" %>
+              <%= form.text_field :name, class: "form-control rounded-pill  border-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :profile_picture, "Foto de Perfil" %>
+              <%= form.file_field :profile_picture, class: "form-control rounded-pill  border-0" %>
+            </div>
+          </div>
+        </div>
+  <div class="row mb-3">
+   <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :experience, "Experiencia Laboral" %>
+          <%= form.text_area :experience, class: "form-control  border-0", rows: 4 %>
+        </div>
+         </div>
+ <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :skills, "Habilidades" %>
+          <%= form.text_area :skills, class: "form-control  border-0", rows: 4 %>
+        </div>
+ </div>
+  </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :salary_expectation, "Expectativa Salarial" %>
+              <%= form.text_field :salary_expectation, class: "form-control rounded-pill  border-0" %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :professional_title, "Título Profesional" %>
+              <%= form.text_field :professional_title, class: "form-control rounded-pill border-0" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <%= form.submit "Guardar", class: "btn btn-sm rounded-pill bg-gradiant btn-dark" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

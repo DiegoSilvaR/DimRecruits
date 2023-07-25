@@ -1,0 +1,184 @@
+<style>
+
+.glass
+{
+background: rgba(121, 145, 255, 0.33);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(11.9px);
+-webkit-backdrop-filter: blur(11.9px);
+border: 1px solid rgba(121, 145, 255, 0.4);
+  }
+  .glass2
+{
+
+background: rgba(230, 13, 255, 0.41);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(11.9px);
+-webkit-backdrop-filter: blur(11.9px);
+border: 1px solid rgba(230, 13, 255, 0.4);
+  }
+
+  .pagination {
+    display: inline-flex;
+    justify-self: unset;
+  }
+  .pagination a {
+    color: white;
+    float: center;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .current {
+    background-color: #272727;
+    color: white;
+    padding: 8px 16px;
+
+  }
+
+  .pagination .disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    padding: 8px 16px;
+  }
+  .gap {
+    display: none;
+  }
+  img {
+    vertical-align: middle;
+    width: 100%;
+}
+.glow-on-hover {
+
+    border: none;
+    outline: none;
+    color: #fff;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #00ff91, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff006f);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 20px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.pulse {
+  --color: #ef6eae;
+  --hover: #d51869;
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+</style>
+
+<div class="container">
+   <div class="mt-4 mb-3 text-center input-group d-flex justify-content-center">
+    <h1 class="text-dark">Ofertas de Empleo</h1>
+    <%= link_to new_job_offer_path, class: "btn "  do %>
+      <i class="fas fa-plus fa-2x text-success"></i>
+    <% end %>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% @job_offers.each do |job_offer| %>
+      <div class="col">
+        <div class="card h-100 shadow-lg">
+          <!-- Encabezado de la tarjeta -->
+          <div class="card-header text-center bg-dark text-light fw-bold" style="font-size: 1.25rem;">
+            <i class="fas fa-briefcase me-2" style="color: #c81f4b;"></i> <%= job_offer.title %>
+          </div>
+
+          <!-- Imagen de la oferta -->
+          <%= image_tag "Job.jpg", class: "card-img-top" %>
+
+          <!-- Contenido de la tarjeta -->
+          <div class="card-body">
+            <p class="card-text"><%= job_offer.description %></p>
+          </div>
+
+          <!-- Información adicional en el pie de página de la tarjeta -->
+          <div class="card-footer text-center">
+            <small class="text-muted" style="font-size:12px">Creado el <%= job_offer.created_at.strftime("%d de %B de %Y a las %H:%M") %></small>
+
+            <%= link_to "Ver este Empleo", job_offer, class: "btn btn-sm btn-gradient rounded-pill text-light", style: "background-color: #c81f4b;" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<div class="pagination justify-content-center text-center d-flex m-3">
+<%= will_paginate @job_offers, class: "pagination rounded-pill shadow bg-gradient", inner_window: 1, outer_window: 0, previous_label: "&laquo;", next_label: "&raquo;", style:"background-color:#c81f4b" %>
+</div>
+

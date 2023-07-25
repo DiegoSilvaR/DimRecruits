@@ -1,0 +1,52 @@
+<div class="container col-lg-6 align-items-center justify-content-center mt-5">
+  <div class="card bg-gradient text-white shadow-lg rounded-4" style="background-color: #c81f4b">
+    <div class="card-body text-center">
+      <h2 class="text-center mb-4">Solicitud de Creación de Cuenta</h2>
+
+      <%= form_with model: @request, url: account_creation_requests_path do |form| %>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <%= form.label :name, "Nombre Completo" %>
+            <%= form.text_field :name, class: "form-control rounded-pill  border-0", required: true %>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <%= form.label :email, "Correo Electrónico" %>
+            <%= form.email_field :email, class: "form-control rounded-pill  border-0", required: true %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <%= form.label :experience, "Experiencia Laboral" %>
+            <%= form.text_field :experience, class: "form-control rounded-pill  border-0", required: true %>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <%= form.label :skills, "Habilidades" %>
+            <%= form.text_field :skills, class: "form-control rounded-pill  border-0", required: true %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <%= form.label :salary_expectation, "Expectativa Salarial" %>
+            <%= form.text_field :salary_expectation, class: "form-control rounded-pill  border-0", required: true %>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <%= form.label :professional_title, "Título Profesional" %>
+            <%= form.text_field :professional_title, class: "form-control rounded-pill border-0", required: true %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :message, "Mensaje Adicional" %>
+          <%= form.text_area :message, class: "form-control border-0", rows: 4 %>
+        </div>
+
+        <%= form.submit "Enviar Solicitud", class: "btn btn-dark rounded-pill bg-gradient" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Solicitudes de Creación de Cuenta Pendientes</h1>
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <table class="table table-dark table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo Electrónico</th>
+            <th scope="col">Fecha de Solicitud</th>
+            <th scope="col">Título Profesional</th>
+            <th scope="col">Aprobar</th>
+          </tr>
+        </thead>
+        <tbody class="table-secondary">
+          <% @pending_requests.each do |request| %>
+            <tr>
+              <td><%= request.name %></td>
+              <td><%= request.email %></td>
+              <td><%= request.created_at %></td>
+              <td><%= request.professional_title %></td>
+
+              <td>
+                <%= button_to approved_account_creation_request_path(request.token), method: :put, class: "btn btn-success btn-sm rounded-circle", data: { confirm: "¿Estás seguro de que deseas aprobar esta solicitud?" } do %>
+                  <i class="fas fa-check"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

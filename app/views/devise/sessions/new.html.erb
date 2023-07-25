@@ -1,0 +1,38 @@
+<div class="container col-lg-4 align-items-center justify-content-center mt-5">
+  <div class="card bg-gradient text-white shadow-lg rounded-4" style="background-color:#c81f4b">
+    <div class="card-body text-center">
+      <h2 class="text-center mb-4">Iniciar sesión</h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, "Correo electrónico" %>
+          <div class="input-group ">
+            <i class="fas fa-envelope fa-2x mx-2"></i>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill bg-transparent border-0" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "Contraseña" %>
+          <div class="input-group ">
+            <i class="fas fa-lock fa-2x mx-2"></i>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-pill bg-transparent border-0" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="form-check text-center justify-content-center d-flex">
+            <%= f.check_box :remember_me, class: "form-check-input me-1" %>
+            <%= f.label :remember_me, "Recordar", class: "form-check-label" %>
+          </div>
+        <% end %>
+
+        <div class="text-center mt-4">
+          <%= f.submit "Ingresar", class: "btn btn-sm rounded-pill bg-gradiant btn-dark" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

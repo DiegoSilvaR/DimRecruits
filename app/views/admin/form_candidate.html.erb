@@ -1,0 +1,28 @@
+<!-- app/views/admin/_form_candidate.html.erb -->
+<%= form_with model: @candidate, url: admin_create_candidate_path do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation %>
+
+  <%= form.label :experience %>
+  <%= form.text_field :experience %>
+
+  <%= form.label :skills %>
+  <%= form.text_field :skills %>
+
+  <%= form.label :salary_expectation %>
+  <%= form.text_field :salary_expectation %>
+
+  <%= form.label :professional_title %>
+  <%= form.text_field :professional_title %>
+
+  <%= form.submit "Crear cuenta" %>
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style>
+  </style>
+</head>
+
+<body>
+<h1>Bienvenido a nuestro sitio web, <%= @name %>!</h1>
+<p>Tu cuenta ha sido creada exitosamente.</p>
+<p>Tus datos de acceso son:</p>
+<p>Email: <%= @candidate.email %></p>
+<p>Contraseña: <%= @password %></p>
+
+<p>Puedes iniciar sesión en nuestro sitio haciendo clic en el siguiente enlace:</p>
+<%= link_to "Iniciar Sesión", @url %>
+
+<p>¡Esperamos que disfrutes de tu experiencia en nuestro sitio!</p>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Nueva Solicitud de Creación de Cuenta</h1>
+<p>A continuación se muestran los detalles de la solicitud:</p>
+
+<p>Nombre: <%= @request.name %></p>
+<p>Email: <%= @request.email %></p>
+<p>Experiencia: <%= @request.experience %></p>
+<p>Habilidades: <%= @request.skills %></p>
+<p>Expectativas de Renta: <%= @request.salary_expectation %></p>
+<p>Título Profesional: <%= @request.professional_title %></p>
+<p>Mensaje: <%= @request.message %></p>
+  <p>Por favor, revisa los detalles y toma una decisión sobre esta solicitud.</p>
+  <p>Si deseas aprobar esta solicitud y crear la cuenta del candidato, haz clic en el siguiente enlace:</p>
+  <%= link_to "Aprobar Solicitud", @url %>
+</body>
+</html>

@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    attributes:
+      user:
+        email: "Correo electrónico"
+        password: "Contraseña"
+        remember_me: "Recuérdame"
+  devise:
+    sessions:
+      new:
+        log_in: "Iniciar sesión"
+        email: "Correo electrónico"
+        password: "Contraseña"
+        remember_me: "Recuérdame"
+        log_in_button: "Ingresar"
+    shared:
+      links:
+        forgot_your_password: "¿Olvidaste tu contraseña?"
+        sign_up: "Registrarse"
+        sign_in: "Iniciar sesión"
+        log_out: "Cerrar sesión"
