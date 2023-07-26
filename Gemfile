@@ -84,3 +84,5 @@ gem 'mini_magick'
 gem 'image_processing'
 
 gem "will_paginate-bootstrap"
+
+gem 'webpacker'
