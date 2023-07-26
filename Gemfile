@@ -85,4 +85,4 @@ gem 'image_processing'
 
 gem "will_paginate-bootstrap"
 
-gem 'webpacker'
+
