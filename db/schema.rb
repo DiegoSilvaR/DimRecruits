@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_034846) do
     t.text "skills"
     t.decimal "salary_expectation"
     t.string "professional_title"
+    t.bigint "candidate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -82,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_034846) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "role", default: 0, null: false
+    t.index ["candidate_id"], name: "index_candidates_on_candidate_id"
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end
@@ -112,4 +114,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_034846) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "candidates", on_delete: :cascade
   add_foreign_key "applications", "job_offers"
+  add_foreign_key "candidates", "candidates", on_delete: :cascade
 end
