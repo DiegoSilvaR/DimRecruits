@@ -62,13 +62,15 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "DimRecruit_production"
 
+   # Configuración de Action Mailer
+  config.action_mailer.default_url_options = { host: 'dimrecruits.onrender.com', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    domain: 'example.com',
-    user_name: Rails.application.credentials.gmail[ :user_name],
-    password: Rails.application.credentials.gmail[ :password],
+    domain: 'your-domain.com', # Reemplaza "your-domain.com" con tu dominio personalizado (si aplicable)
+    user_name: Rails.application.credentials.gmail[:user_name],
+    password: Rails.application.credentials.gmail[:password],
     authentication: 'plain',
     enable_starttls_auto: true
   }
