@@ -17,13 +17,6 @@ class Candidates::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-  def create
-    super do |resource|
-      if resource.errors.any?
-        flash[:alert] = "Error en el inicio de sesión: #{resource.errors.full_messages.join(', ')}"
-      end
-    end
-  end
 
   # protected
 
