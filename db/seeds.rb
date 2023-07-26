@@ -5,6 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-admin = Candidate.create(email: 'diegoalejandrosilvarodriguez@gmail.com', name: 'Diego Silva', professional_title:'Diseñador', salary_expectation: '500000', skills: 'todas', password: '1985bufalo', role: :admin)
-admin = Candidate.create(email: 'estebanrails@gmail.com', name: 'Esteban Rails', professional_title:'Administrador', salary_expectation: '500000', skills: 'todas', password: 'rails123456', role: :admin)
+admin = Candidate.create(email: 'diegoalejandrosilvarodriguez@gmail.com', name: 'Diego Silva', professional_title:'Diseñador', salary_expectation: '500000', skills: 'todas', password: '1985bufalo', password_confirmation: '1985bufalo', role: :admin)
+admin = Candidate.create(email: 'estebanrails@gmail.com', name: 'Esteban Rails', professional_title:'Administrador', salary_expectation: '500000', skills: 'todas', password: 'rails123456', password_confirmation: 'rails123456',  role: :admin)
 
