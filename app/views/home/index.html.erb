@@ -1,4 +1,28 @@
-    <div class="container-fluid text-center text-white mb-2">
+<style>
+.display-date {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.display-time {
+    display: flex;
+    font-size: 4.4rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    transition: ease-in-out 0.1s;
+    transition-property: background, box-shadow, color;
+    -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+}
+
+    .display-time:hover {
+    }
+</style>
+
+
+<div class="container-fluid text-center text-white mb-2">
         <div class="display-date justify-content-center text-black"><span id="day">day</span>,<span id="daynum">00</span><span id="month">month</span><span id="year">0000</span></div>
         <div class="display-time justify-content-center text-black"></div>
     </div>
