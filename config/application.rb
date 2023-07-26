@@ -2,6 +2,11 @@ require_relative "boot"
 
 require "rails/all"
 
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
 module DimRecruit
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -14,7 +19,5 @@ module DimRecruit
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    config.action_mailer.default_url_options = { host: 'https://dimrecruits.onrender.com', protocol: 'https' }
   end
 end
