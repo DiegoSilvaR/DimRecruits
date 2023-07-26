@@ -14,13 +14,58 @@
   <p>No job offers available at the moment.</p>
 <% end %>
 
-<div>
-  <h2>Quick Links:</h2>
-  <ul>
-    <li><%= link_to 'Candidates', candidates_path %></li>
-    <li><%= link_to 'Job Offers', job_offers_path %></li>
-    <li><%= link_to 'Applications', applications_path %></li>
-    <li><%= link_to 'Recruiters', recruiters_path %></li>
-  </ul>
-</div>
 
+
+  <script type="text/javascript">
+        const displayTime = document.querySelector(".display-time");
+        // Time
+        function showTime() {
+            let time = new Date();
+            displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+            setTimeout(showTime, 1000);
+        }
+        showTime();
+        // Date
+        function updateDate() {
+            let today = new Date();
+
+            // return number
+            let dayName = today.getDay(),
+                dayNum = today.getDate(),
+                month = today.getMonth(),
+                year = today.getFullYear();
+
+            const months = [
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Deciembre"
+            ];
+            const dayWeek = [
+                "Domingo",
+                "Lunes",
+                "Martes",
+                "Miercoles",
+                "Jueves",
+                "Viernes",
+                "Sabado"
+            ];
+            // value -> ID of the html element
+            const IDCollection = ["day", "daynum", "month", "year"];
+            // return value array with number as a index
+            const val = [dayWeek[dayName], dayNum, months[month], year];
+            for (let i = 0; i < IDCollection.length; i++) {
+                document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+            }
+        }
+
+        updateDate();
+    </script>
