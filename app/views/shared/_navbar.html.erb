@@ -54,6 +54,7 @@
           </a>
           <ul class="dropdown-menu ms-auto">
             <% if candidate_signed_in? %>
+               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
               <li><%= button_to "Cerrar Sesión", destroy_candidate_session_path, class: "dropdown-item", method: :delete %></li>
             <% else %>
               <li><%= link_to "Iniciar Sesión", new_candidate_session_path, class: "dropdown-item" %></li>
