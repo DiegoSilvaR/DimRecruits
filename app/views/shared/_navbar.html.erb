@@ -42,9 +42,7 @@
               <% else %>
                 - Postulante
               <% end %>
-            
-          </a>
-  <% if current_candidate.profile_picture.attached? %>
+             <% if current_candidate.profile_picture.attached? %>
                 <%= image_tag current_candidate.profile_picture, class: "rounded-circle", style: "width: 70px; height: 70px; margin-right: 10px;" %>
               <% else %>
                 <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
@@ -52,6 +50,8 @@
             <% else %>
               Inicia sesión o regístrate
             <% end %>
+          </a>
+                 
           <ul class="dropdown-menu ms-auto">
             <% if candidate_signed_in? %>
               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
