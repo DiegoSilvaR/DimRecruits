@@ -29,12 +29,21 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
+        <ul class="dropdown-menu ms-auto">
+            <% if candidate_signed_in? %>
+               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
+              <li><%= button_to "Cerrar Sesión", destroy_candidate_session_path, class: "dropdown-item", method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Iniciar Sesión", new_candidate_session_path, class: "dropdown-item" %></li>
+               <li><%= link_to 'Solicitar Registro', new_account_creation_request_path, method: :post, class: 'nav-link' %></li>
+            <% end %>
+          </ul>
           <a class="nav-link dropdown-toggle <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
              <% if current_candidate.profile_picture.attached? %>
-            <%= image_tag current_candidate.profile_picture, class: "rounded-circle ", style: "width: 80px; height: 80px; margin-right: 10px;" %>
+            <%= image_tag current_candidate.profile_picture, class: "rounded-circle ", style: "width: 70px; height: 70px; margin-right: 10px;" %>
             <% else %>
-             <%= fa_icon "user", class: "rounded-circle", style: "font-size: 80px; margin-right: 10px;" %>
+             <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
               <% end %>
               <% if current_candidate.name.present? %>
                 Bienvenid@ <%= current_candidate.name %>
@@ -52,15 +61,7 @@
               Inicia sesión o regístrate
             <% end %>
           </a>
-          <ul class="dropdown-menu ms-auto">
-            <% if candidate_signed_in? %>
-               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
-              <li><%= button_to "Cerrar Sesión", destroy_candidate_session_path, class: "dropdown-item", method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Iniciar Sesión", new_candidate_session_path, class: "dropdown-item" %></li>
-               <li><%= link_to 'Solicitar Registro', new_account_creation_request_path, method: :post, class: 'nav-link' %></li>
-            <% end %>
-          </ul>
+  
         </li>
       </ul>
     </div>
