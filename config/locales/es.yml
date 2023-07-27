@@ -1,6 +1,12 @@
 es:
   activerecord:
     attributes:
+      application:
+        cover_letter: "Carta de presentación"
+      candidate:
+        name: "Candidato"
+      job_offer:
+        title: "Oferta de trabajo"
       user:
         email: "Correo electrónico"
         password: "Contraseña"
@@ -19,3 +25,11 @@ es:
         sign_up: "Registrarse"
         sign_in: "Iniciar sesión"
         log_out: "Cerrar sesión"
+  applications:
+    title: "Aplicaciones"
+    cover_letter_label: "Carta de presentación"
+    candidate_label: "Candidato"
+    job_offer_label: "Oferta de trabajo"
+    view_label: "Ver"
+    download_label: "Descargar"
+    new_application_button: "Nueva solicitud"

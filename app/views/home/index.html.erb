@@ -3,13 +3,13 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 5px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
 .display-time {
     display: flex;
-    font-size: 4.4rem;
+    font-size: 2.4rem;
     font-weight: bold;
     padding: 5px 5px;
     transition: ease-in-out 0.1s;
@@ -19,30 +19,226 @@
 
     .display-time:hover {
     }
+
+#timeline {
+    display: flex;
+      background: url(<%= image_path("edificio.png") %>);
+    background-size: cover;
+}
+
+    #timeline:hover .tl-item {
+        width: 15%;
+    }
+
+.tl-item {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    width: 15%;
+    height: 65vh;
+    min-height: 400px;
+    color: #fff;
+    overflow: hidden;
+    transition: width 0.5s ease;
+}
+
+    .tl-item:before,
+    .tl-item:after {
+        transform: translate3d(0, 0, 0);
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .tl-item:after {
+        background: #33333383;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+
+    .tl-item:before {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 75%);
+        z-index: 1;
+        opacity: 0;
+        transform: translate3d(0, 0, 0) translateY(50%);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .tl-item:hover {
+        width: 30% !important;
+    }
+
+        .tl-item:hover:after {
+            opacity: 0;
+        }
+
+        .tl-item:hover:before {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) translateY(0);
+            transition: opacity 1s ease, transform 1s ease 0.25s;
+        }
+
+        .tl-item:hover .tl-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.75s ease 0.5s;
+        }
+
+        .tl-item:hover .tl-bg {
+            filter: grayscale(0);
+        }
+
+
+
+    .tl-content h1 {
+        font-family: Bahnschrift, Helvetica Neue, Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        color: #c81f4b;
+        font-size: 1.44rem;
+        font-weight: 900;
+    }
+
+.tl-year {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+    .tl-year p {
+        font-family: Bahnschrift, Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 1.728rem;
+        line-height: 1;
+        padding-top: 15px;
+    }
+
+.tl-bg {
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: filter 0.5s ease;
+    filter: grayscale(100%);
+}
+.tl-content {
+    transform: translate3d(0, 0, 0) translateY(25px);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: 0 1.618em;
+    top: 55%;
+    opacity: 0;
+    font-size: 14px;
+    color: #d9d9d9;
+}
+
 </style>
 
-
-<div class="container-fluid text-center text-white mb-2">
+<div class="container-fluid text-center text-white mb-1">
         <div class="display-date justify-content-center text-black"><span id="day">day</span>,<span id="daynum">00</span><span id="month">month</span><span id="year">0000</span></div>
         <div class="display-time justify-content-center text-black"></div>
     </div>
+  <div class="col-10 container-fluid">
 
-<h1>Bienvenido a DimRecruit</h1>
-<p>Esta es la página de inicio de nuestra aplicación.</p>
+        <section id="timeline">
+
+  <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/801/801/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">1992</p>
+    </div>
+    <div class="tl-content mt-4">
+      <h1>31 años</h1>
+      <h4>Factoring Tradicional</h4>
+    </div>
+  </div>
+
+ <div class="tl-item">
+  <div class="tl-bg" style="background-image: url(https://placeimg.com/802/802/nature)"></div>
+  <div class="tl-year">
+    <p class="f2 heading--sanSerif">2000</p>
+  </div>
+  <div class="tl-content mt-4">
+    <h1>23 años</h1>
+    <h4>Confirming</h4>
+  </div>
+</div>
 
 
+  <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/803/803/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">2006</p>
+    </div>
+   <div class="tl-content mt-4">
+      <h1>17 años</h1>
+      <h4>Créditos Comerciales y Línea de Credito</h4>
+    </div>
+  </div>
 
-<% if @recent_job_offers.any? %>
-  <h2>Recent Job Offers:</h2>
-  <ul>
-    <% @recent_job_offers.each do |job_offer| %>
-      <li><%= link_to job_offer.title, job_offer_path(job_offer) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No job offers available at the moment.</p>
-<% end %>
+  <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/800/800/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">2009</p>
+    </div>
+ <div class="tl-content mt-4">
+      <h1>14 años</h1>
+      <h4>Leasing Financiero</h4>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/800/800/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">2010</p>
+    </div>
+ <div class="tl-content mt-4">
+      <h1>13 años</h1>
+      <h4>Facturación Electrónica</h4>
+    </div>
+  </div>
+      <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/800/800/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">2012</p>
+    </div>
+ <div class="tl-content mt-4">
+      <h1>11 años</h1>
+      <h4>Factoring Electrónico</h4>
+     <h6>(Cesión Electrónica)</h6>
+    </div>
+  </div>
+      <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/800/800/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">2015</p>
+    </div>
+ <div class="tl-content mt-4">
+      <h1>8 años</h1>
+      <h4>Línea Triangular</h4>
 
+    </div>
+  </div>
+   <div class="tl-item">
+    <div class="tl-bg" style="background-image: url(https://placeimg.com/800/800/nature)"></div>
+    <div class="tl-year">
+      <p class="f2 heading--sanSerif">2020</p>
+    </div>
+     <div class="tl-content mt-4">
+      <h1>3 años</h1>
+      <h4>Factoring Digital</h4>
+    </div>
+  </div>
+</section>
+    </div>
 
 
   <script type="text/javascript">

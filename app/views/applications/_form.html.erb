@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :cover_letter, style: "display: block" %>
-    <%= form.text_area :cover_letter %>
+  <div class="form-group">
+    <%= form.label :cover_letter, "Carta de presentación", style: "display: block" %>
+    <%= form.file_field :cover_letter, accept: ".pdf,.doc,.docx,.xls,.xlsx,.txt" %>
   </div>
 
   <div>
-    <%= form.label :candidate_id, style: "display: block" %>
-    <%= form.collection_select :candidate_id, Candidate.all, :id, :name %>
+    <%= form.label :candidate_id, "Candidato", style: "display: block" %>
+    <%= form.hidden_field :candidate_id, value: current_candidate.id %>
   </div>
 
-  <div>
-    <%= form.label :job_offer_id, style: "display: block" %>
+
+  <div class="form-group">
+    <%= form.label :job_offer_id, "Oferta de trabajo", style: "display: block" %>
     <%= form.collection_select :job_offer_id, JobOffer.all, :id, :title %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>

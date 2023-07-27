@@ -1,17 +1,6 @@
-<div id="<%= dom_id application %>">
-  <p>
-    <strong>Cover letter:</strong>
-    <%= application.cover_letter %>
-  </p>
-
-  <p>
-    <strong>Candidate:</strong>
-    <%= application.candidate_id %>
-  </p>
-
-  <p>
-    <strong>Job offer:</strong>
-    <%= application.job_offer_id %>
-  </p>
-
-</div>
+<tr>
+  <td><%= application.cover_letter %></td>
+  <td><%= application.candidate.name %></td>
+  <td><%= application.job_offer.title %></td>
+  <td class="text-center"><%= link_to fa_icon('eye'), application %></td>
+</tr>

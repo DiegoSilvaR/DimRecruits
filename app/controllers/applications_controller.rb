@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
-  before_action :set_application, only: %i[ show edit update destroy ]
+  before_action :authenticate_candidate!
+  before_action :set_application, only: %i[show edit update destroy]
 
   # GET /applications or /applications.json
   def index
@@ -13,6 +14,7 @@ class ApplicationsController < ApplicationController
   # GET /applications/new
   def new
     @application = Application.new
+    @application.candidate_id = current_candidate.id
   end
 
   # GET /applications/1/edit
@@ -25,7 +27,7 @@ class ApplicationsController < ApplicationController
 
     respond_to do |format|
       if @application.save
-        format.html { redirect_to application_url(@application), notice: "Application was successfully created." }
+        format.html { redirect_to @application, notice: "Application was successfully created." }
         format.json { render :show, status: :created, location: @application }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class ApplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @application.update(application_params)
-        format.html { redirect_to application_url(@application), notice: "Application was successfully updated." }
+        format.html { redirect_to @application, notice: "Application was successfully updated." }
         format.json { render :show, status: :ok, location: @application }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +52,6 @@ class ApplicationsController < ApplicationController
   # DELETE /applications/1 or /applications/1.json
   def destroy
     @application.destroy
-
     respond_to do |format|
       format.html { redirect_to applications_url, notice: "Application was successfully destroyed." }
       format.json { head :no_content }
@@ -58,13 +59,14 @@ class ApplicationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_application
-      @application = Application.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def application_params
-      params.require(:application).permit(:cover_letter, :candidate_id, :job_offer_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_application
+    @application = Application.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def application_params
+    params.require(:application).permit(:cover_letter, :candidate_id, :job_offer_id)
+  end
 end

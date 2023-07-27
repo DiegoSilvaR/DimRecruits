@@ -1,14 +1,39 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <div class="mt-4 mb-3 text-center input-group d-flex justify-content-center">
+    <h1 class="text-dark"><%= t('applications.title') %></h1>
+    <%= link_to new_application_path, class: "btn "  do %>
+      <i class="fas fa-plus fa-2x text-success"></i>
+    <% end %>
+  </div>
 
-<h1>Applications</h1>
-
-<div id="applications">
-  <% @applications.each do |application| %>
-    <%= render application %>
-    <p>
-      <%= link_to "Show this application", application %>
-    </p>
-  <% end %>
+  <div id="applications" class="container mt-5">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th><%= t('applications.cover_letter_label') %></th>
+            <th><%= t('applications.candidate_label') %></th>
+            <th><%= t('applications.job_offer_label') %></th>
+            <th class="text-center"><%= t('applications.view_label') %></th>
+            <th class="text-center"><%= t('applications.download_label') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @applications.each do |application| %>
+            <tr>
+              <td><%= application.attachment_file_name %></td>
+              <td><%= application.candidate.name %></td>
+              <td><%= application.job_offer.title %></td>
+              <td class="text-center"><%= link_to fa_icon('eye'), application %></td>
+              <td class="text-center">
+                <% if application.cover_letter.attached? %>
+                  <%= link_to fa_icon('download'), rails_blob_path(application.cover_letter, disposition: "attachment"), class: "btn btn-primary btn-sm", title: t('applications.download_label') %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New application", new_application_path %>
