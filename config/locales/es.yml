@@ -11,6 +11,9 @@ es:
         email: "Correo electrónico"
         password: "Contraseña"
         remember_me: "Recuérdame"
+    errors:
+      messages:
+        record_invalid: "Registro inválido"
   devise:
     sessions:
       new:
