@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top bg-dark shadow-lg" data-bs-theme="dark">
   <div class="container">
     <a class="navbar-brand" href="/">
-    <%= image_tag("logo.png", alt: "Logo", class: "logo-img", style: "width: 180px;") %>
-
+      <%= image_tag("logo.png", alt: "Logo", class: "logo-img", style: "width: 180px;") %>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,34 +15,25 @@
           <%= link_to 'Postulaciones', applications_path, class: 'nav-link' %>
         </li>
         <% if candidate_signed_in? && current_candidate.admin? %>
-        <li class="nav-item">
-          <%= link_to 'Nuevo', new_candidate_path, class: 'nav-link' %>
-        </li>
-         <li class="nav-item">
+          <li class="nav-item">
+            <%= link_to 'Nuevo', new_candidate_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
             <%= link_to 'Usuarios', candidates_path, class: 'nav-link' %>
           </li>
-           <li class="nav-item">
-          <%= link_to "Solicitudes pendientes", pending_account_creation_requests_path, class: 'nav-link' %>
-              </li>
-      <% end %>
+          <li class="nav-item">
+            <%= link_to "Solicitudes pendientes", pending_account_creation_requests_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-        <ul class="dropdown-menu ms-auto">
-            <% if candidate_signed_in? %>
-               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
-              <li><%= button_to "Cerrar Sesión", destroy_candidate_session_path, class: "dropdown-item", method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Iniciar Sesión", new_candidate_session_path, class: "dropdown-item" %></li>
-               <li><%= link_to 'Solicitar Registro', new_account_creation_request_path, method: :post, class: 'nav-link' %></li>
-            <% end %>
-          </ul>
           <a class="nav-link dropdown-toggle <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
-             <% if current_candidate.profile_picture.attached? %>
-            <%= image_tag current_candidate.profile_picture, class: "rounded-circle ", style: "width: 70px; height: 70px; margin-right: 10px;" %>
-            <% else %>
-             <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
+              <% if current_candidate.profile_picture.attached? %>
+                <%= image_tag current_candidate.profile_picture, class: "rounded-circle", style: "width: 70px; height: 70px; margin-right: 10px;" %>
+              <% else %>
+                <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
               <% end %>
               <% if current_candidate.name.present? %>
                 Bienvenid@ <%= current_candidate.name %>
@@ -61,7 +51,15 @@
               Inicia sesión o regístrate
             <% end %>
           </a>
-  
+          <ul class="dropdown-menu ms-auto">
+            <% if candidate_signed_in? %>
+              <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
+              <li><%= button_to "Cerrar Sesión", destroy_candidate_session_path, class: "dropdown-item", method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Iniciar Sesión", new_candidate_session_path, class: "dropdown-item" %></li>
+              <li><%= link_to 'Solicitar Registro', new_account_creation_request_path, method: :post, class: 'nav-link' %></li>
+            <% end %>
+          </ul>
         </li>
       </ul>
     </div>
