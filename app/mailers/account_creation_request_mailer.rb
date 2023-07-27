@@ -2,7 +2,7 @@ class AccountCreationRequestMailer < ApplicationMailer
   default from: 'estebanrails@gmail.com'
   layout 'mailer'
 
-  def self.notify_esteban(request)
+  def notify_esteban(request)
     @request = request
     @url = 'https://dimrecruits.onrender.com/account_creation_requests/pending_requests'
     mail(to: 'estebanrails@gmail.com', subject: 'Nueva Solicitud de Creación de Cuenta')
