@@ -28,7 +28,7 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mt-3 <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
               <% if current_candidate.name.present? %>
                 Bienvenid@ <%= current_candidate.name %>
