@@ -69,8 +69,8 @@ Rails.application.configure do
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'dimrecruits.onrender.com',
-    user_name: estebanrails@gmail.com,
-    password: jfjbdldrcpaotddu,
+    user_name: 'estebanrails@gmail.com',
+    password: 'jfjbdldrcpaotddu',
     authentication: 'plain',
     enable_starttls_auto: true
   }
