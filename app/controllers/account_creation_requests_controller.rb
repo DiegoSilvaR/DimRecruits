@@ -14,7 +14,7 @@ class AccountCreationRequestsController < ApplicationController
 
     if @request.save
       # Enviamos un correo electrónico a Esteban con los detalles de la solicitud
-      AccountCreationRequestMailer.with(request: @request).notify_esteban.deliver_now
+      AccountCreationRequestMailer.with(@request).notify_esteban.deliver_now
       redirect_to root_path, notice: "Tu solicitud ha sido enviada. Esteban revisará tus datos y tomará una decisión."
     else
       render :new
@@ -60,7 +60,7 @@ class AccountCreationRequestsController < ApplicationController
 
       # Enviamos el correo de bienvenida al candidato con sus datos de acceso
       login_url = 'https://dimrecruits.onrender.com/candidates/sign_in'
-      CandidateMailer.welcome_email(@candidate, password, login_url).deliver_now
+      CandidateMailer.welcome_email(@candidate, password).deliver_now
 
       redirect_to root_path, notice: "La solicitud ha sido aprobada. El correo de bienvenida ha sido enviado al candidato."
     else
