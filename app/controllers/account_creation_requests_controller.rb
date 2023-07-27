@@ -15,7 +15,6 @@ class AccountCreationRequestsController < ApplicationController
     if @request.save
       # Enviamos un correo electrónico a Esteban con los detalles de la solicitud
       AccountCreationRequestMailer.with(request: @request).notify_esteban.deliver_now
-
       redirect_to root_path, notice: "Tu solicitud ha sido enviada. Esteban revisará tus datos y tomará una decisión."
     else
       render :new
