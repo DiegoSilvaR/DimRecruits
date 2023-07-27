@@ -1,8 +1,8 @@
 class CandidateMailer < ApplicationMailer
-  def welcome_email(candidate, password, url)
+  def welcome_email(candidate, password)
     @candidate = candidate
     @password = password
-    @url = url
+    @login_url = "https://dimrecruits.onrender.com/candidates/sign_in"
 
     mail(to: @candidate.email, subject: '¡Bienvenido a nuestro sitio!')
   end

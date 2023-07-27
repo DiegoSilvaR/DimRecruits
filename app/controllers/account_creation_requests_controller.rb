@@ -60,8 +60,8 @@ class AccountCreationRequestsController < ApplicationController
       end
 
       # Enviamos el correo de bienvenida al candidato con sus datos de acceso
-      @url = new_candidate_session_url # Reemplaza esto con la ruta correcta para iniciar sesión de candidato
-      CandidateMailer.welcome_email(@candidate, password, @url).deliver_now
+      login_url = 'https://dimrecruits.onrender.com/candidates/sign_in'
+      CandidateMailer.welcome_email(@candidate, password, login_url).deliver_now
 
       redirect_to root_path, notice: "La solicitud ha sido aprobada. El correo de bienvenida ha sido enviado al candidato."
     else

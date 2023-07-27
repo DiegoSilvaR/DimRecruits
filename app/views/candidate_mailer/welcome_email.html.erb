@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <style>
-  </style>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
-
 <body>
-<h1>Bienvenido a nuestro sitio web, <%= @name %>!</h1>
-<p>Tu cuenta ha sido creada exitosamente.</p>
-<p>Tus datos de acceso son:</p>
-<p>Email: <%= @candidate.email %></p>
-<p>Contraseña: <%= @password %></p>
-
-<p>Puedes iniciar sesión en nuestro sitio haciendo clic en el siguiente enlace:</p>
-<%= link_to "Iniciar Sesión", @url %>
-
-<p>¡Esperamos que disfrutes de tu experiencia en nuestro sitio!</p>
-
+  <h1>¡Bienvenido a nuestro sitio!</h1>
+  <p>Estimado <%= @candidate.name %>,</p>
+  <p>Te damos la bienvenida a nuestro sitio. A continuación, te proporcionamos tus datos de acceso:</p>
+  <p>Usuario: <%= @candidate.email %></p>
+  <p>Contraseña: <%= @password %></p>
+  <p>Para acceder a tu cuenta, haz clic en el siguiente enlace:</p>
+  <%= link_to "Iniciar sesión", @login_url %>
+  <p>¡Esperamos que disfrutes tu experiencia en nuestro sitio!</p>
 </body>
 </html>
+
