@@ -28,7 +28,7 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle mt-3 <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
               <% if current_candidate.name.present? %>
                 Bienvenid@ <%= current_candidate.name %>
@@ -42,7 +42,9 @@
               <% else %>
                 - Postulante
               <% end %>
-              <% if current_candidate.profile_picture.attached? %>
+            
+          </a>
+  <% if current_candidate.profile_picture.attached? %>
                 <%= image_tag current_candidate.profile_picture, class: "rounded-circle", style: "width: 70px; height: 70px; margin-right: 10px;" %>
               <% else %>
                 <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
@@ -50,7 +52,6 @@
             <% else %>
               Inicia sesión o regístrate
             <% end %>
-          </a>
           <ul class="dropdown-menu ms-auto">
             <% if candidate_signed_in? %>
               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
