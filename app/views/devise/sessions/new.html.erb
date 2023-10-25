@@ -149,7 +149,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
   <div class="content glass2  shadow-lg rounded-4" >
     <div class="card-body text-center">
       <h2 class="text-center mb-4">Iniciar sesión</h2>
-
+          <%= image_tag("dimhub.svg", alt: "Logo", class: "logo-img", style: "width: 180px;") %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group ">
           <%= f.label :email, "Correo electrónico" %>
