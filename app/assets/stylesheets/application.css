@@ -26,30 +26,6 @@
 }
 
 
-
-.colorPicker
-{
-  background: #e4ebf5;
-  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-
-}
-
-.colorPicker i
-{
-  color: #6d5dfc;
-}
-
-.colors {
-
-  background: #e4ebf5;
-  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-}
-
-.container {
-
-  background: var(--greyLight-1);
-}
-
 .components {
   width: 80rem;
   height: 45rem;
