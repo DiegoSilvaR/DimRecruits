@@ -59,7 +59,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
       </ul>
       <ul class="navbar-nav me-5 d-inline-flex">
          <%= image_tag("scotiabank.svg", alt: "Logo", class: "ps-5", style: "width: 240px;") %>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropstart">
           <a class="nav-link dropdown-toggle <%= "text-danger" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
               <% if current_candidate.name.present? %>
@@ -87,9 +87,11 @@ border: 0px solid rgba(255, 255, 255, 0.3);
           <ul class="dropdown-menu me-5 mt-3 show  rounded-0 rounded-bottom-4 glass2">
             <% if candidate_signed_in? %>
               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
               <li><%= button_to "Cerrar Sesión", destroy_candidate_session_path, class: "dropdown-item", method: :delete %></li>
             <% else %>
               <li><%= link_to "Iniciar Sesión", new_candidate_session_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
               <li><%= link_to 'Solicitar Registro', new_account_creation_request_path, method: :post, class: 'nav-link' %></li>
             <% end %>
           </ul>
