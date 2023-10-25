@@ -61,16 +61,16 @@ border: 0px solid rgba(255, 255, 255, 0.3);
           <a class="nav-link dropdown-toggle <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
               <% if current_candidate.name.present? %>
-                Bienvenid@ <%= current_candidate.name %>
+                Bienvenido-<%= current_candidate.name %>
               <% else %>
-                Bienvenid@ <%= current_candidate.email %>
+                Bienvenido-<%= current_candidate.email %>
               <% end %>
               <% if current_candidate.admin? %>
-                - Admin
+                -Admin
               <% elsif current_candidate.recruit? %>
-                - Author
+                -Author
               <% else %>
-                - Postulante
+              -Postulante
               <% end %>
              <% if current_candidate.profile_picture.attached? %>
                 <%= image_tag current_candidate.profile_picture, class: "rounded-circle", style: "width: 70px; height: 70px; margin-right: 10px;" %>
@@ -78,7 +78,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
                 <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
               <% end %>
             <% else %>
-              Inicia sesión o regístrate
+              Inicia sesión
             <% end %>
           </a>
                  
