@@ -19,6 +19,33 @@
         background-repeat: no-repeat;
         height: 100vh;
       }
+    .glass{
+
+background: rgba(255, 255, 255, 0.6);
+border-radius: 0px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 0px solid rgba(255, 255, 255, 0.3);
+}
+.glass2{
+
+background: rgba(255, 255, 255, 0.40);
+border-radius: 16px;
+box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.4);
+backdrop-filter: blur(5.6px);
+-webkit-backdrop-filter: blur(5.6px);
+}
+.glass3{
+
+background: rgba(255, 255, 255, 0.70);
+border-radius: 0px;
+box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 0px solid rgba(255, 255, 255, 0.3);
+}
+
     </style>
   </head>
   <body class="full-screen-background" style="font-family: 'Poppins', sans-serif;">
@@ -27,9 +54,9 @@
       <div class="container">
         <%= yield %>
       </div>
-    <footer class="fixed-bottom py-3 bg-dark">
+    <footer class="fixed-bottom py-3 glass">
         <div class="text-center d-flex justify-content-center">
-            <label class="text-decoration-none text-light opacity-50">Dimensión S.A. ® Todos los derechos reservados</label>
+            <label class="text-decoration-none text-secondary opacity-50" style="font-size:12px">Dimensión S.A. ® Todos los derechos reservados</label>
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/19e2a818fa.js" crossorigin="anonymous"></script>
