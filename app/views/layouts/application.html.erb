@@ -45,16 +45,31 @@ backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 0px solid rgba(255, 255, 255, 0.3);
 }
+    .icon-height {
+      height: 28px;
+      width: 28px;
+    }
 
+    .icon-container {
+      background: #FF9138;
+    }
+
+    .dark-background {
+      background: #2b3944;
+    }
+
+    #socialWrap {
+      border-radius: 0px 24px 24px 0px;
+    }
     </style>
   </head>
   <body class="full-screen-background" style="font-family: 'Poppins', sans-serif;">
     <%= render "shared/navbar" %>
       <div class="d-flex position-fixed">
             <div class="d-flex flex-column icon-container shadow shadow-lg p-3" id="socialWrap">
-              <a href=""><img class="my-2" src="assets/img/chile.png" width="30px" alt=""></a>
-              <a href=""><img class="my-2" src="assets/img/colombia.png" width="30px" alt=""></a>   
-              <a href=""><img class="my-2" src="assets/img/peru.png" width="30px" alt=""></a>
+              <%= image_tag("chile.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
+               <%= image_tag("colombia.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
+              <%= image_tag("peru.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
             </div>
           </div>
       <div class="container">
