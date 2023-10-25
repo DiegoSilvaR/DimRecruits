@@ -59,7 +59,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
       </ul>
       <ul class="navbar-nav me-5 d-inline-flex">
          <%= image_tag("scotiabank.svg", alt: "Logo", class: "ps-5", style: "width: 240px;") %>
-        <li class="nav-item dropstart">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle <%= "text-danger" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
               <% if current_candidate.name.present? %>
@@ -80,11 +80,11 @@ border: 0px solid rgba(255, 255, 255, 0.3);
                 <%= fa_icon "user", class: "rounded-circle fw-bold", style: "font-size: 70px; margin-right: 10px;" %>
               <% end %>
             <% else %>
-              <i class="fa-solid fa-right-to-bracket"></i>
+              <i class="fa-solid fa-right-to-bracket fa-2x mx-2"></i>
             <% end %>
           </a>
                  
-          <ul class="dropdown-menu me-5 mt-3 show  rounded-0 rounded-bottom-4 glass2">
+          <ul class="dropdown-menu dropdown-menu-start me-5 mt-3 show  rounded-0 rounded-bottom-4 glass2">
             <% if candidate_signed_in? %>
               <li><%= link_to "Actualizar Foto de Perfil", edit_candidate_path(current_candidate), class: "dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
