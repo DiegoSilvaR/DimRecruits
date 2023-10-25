@@ -8,7 +8,7 @@
 # db/seeds.rb
 
 # Crea un usuario de ejemplo
- Candidate.create!(
+  Candidate.create!(
   email: 'estebanrails@gmail.com',
   password: 'rails123456',
   name: 'Jaime Santos',
@@ -17,7 +17,7 @@
   salary_expectation: 1000000,
   professional_title: 'Administrador',
   role: 'admin'
- )
+  )
 
 # Agrega más usuarios si es necesario
 
