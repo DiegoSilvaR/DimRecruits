@@ -31,7 +31,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
 <nav class="navbar navbar-expand-lg sticky-top glass shadow-lg" data-bs-theme="light">
   <div class="container-fluid">
     <a class="navbar-brand " href="/">
-      <%= image_tag("dimlogo2.svg", alt: "Logo", class: "logo-img ps-5", style: "width: 220px;") %>
+      <%= image_tag("dimlogo2.svg", alt: "Logo", class: "logo-img ps-5", style: "width: 260px;") %>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,10 +56,10 @@ border: 0px solid rgba(255, 255, 255, 0.3);
           </li>
         <% end %>
       </ul>
-      <ul class="navbar-nav ms-auto me-5">
-         <%= image_tag("scotiabank.svg", alt: "Logo", class: "logo-img ps-5", style: "width: 220px;") %>
+      <ul class="navbar-nav me-5 d-inline-flex">
+         <%= image_tag("scotiabank.svg", alt: "Logo", class: "ps-5", style: "width: 240px;") %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle <%= "text-warning" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle <%= "text-danger" if candidate_signed_in? %>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <% if candidate_signed_in? %>
               <% if current_candidate.name.present? %>
                 Bienvenido-<%= current_candidate.name %>
@@ -76,7 +76,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
              <% if current_candidate.profile_picture.attached? %>
                 <%= image_tag current_candidate.profile_picture, class: "rounded-circle", style: "width: 70px; height: 70px; margin-right: 10px;" %>
               <% else %>
-                <%= fa_icon "user", class: "rounded-circle", style: "font-size: 70px; margin-right: 10px;" %>
+                <%= fa_icon "user", class: "rounded-circle fw-bold", style: "font-size: 70px; margin-right: 10px;" %>
               <% end %>
             <% else %>
               Inicia sesión
