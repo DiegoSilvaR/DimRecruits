@@ -151,18 +151,18 @@ border: 0px solid rgba(255, 255, 255, 0.3);
       <h2 class="text-center mb-4">Iniciar sesión</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-group field">
+        <div class="form-group ">
           <%= f.label :email, "Correo electrónico" %>
-          <div class="input-group ">
-            <i class="fas fa-envelope fa-1x mx-2"></i>
+          <div class="input-group field">
+            <i class="fas fa-envelope fa-2x m-2 text-secondary opacity-25"></i>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill  border-0" %>
           </div>
         </div>
 
-        <div class="form-group field">
+        <div class="form-group ">
           <%= f.label :password, "Contraseña" %>
-          <div class="input-group ">
-            <i class="fas fa-lock fa-1x mx-2"></i>
+          <div class="input-group field">
+            <i class="fas fa-lock fa-2x m-2 text-secondary opacity-25"></i>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-pill  border-0" %>
           </div>
         </div>
@@ -174,7 +174,7 @@ border: 0px solid rgba(255, 255, 255, 0.3);
           </div>
         <% end %>
         <div class="text-center mt-4">
-          <%= f.submit "Ingresar", class: "btn btn-sm rounded-pill bg-gradiant btn-dark" %>
+          <%= f.submit "Ingresar", class: "btn btn-sm" %>
         </div>
       <% end %>
 
