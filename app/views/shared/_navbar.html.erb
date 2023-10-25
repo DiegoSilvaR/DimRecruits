@@ -1,4 +1,34 @@
-<nav class="navbar navbar-expand-lg sticky-top bg-dark shadow-lg" data-bs-theme="dark">
+    <style>
+.glass{
+
+background: rgba(255, 255, 255, 0.6);
+border-radius: 0px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 0px solid rgba(255, 255, 255, 0.3);
+}
+.glass2{
+
+background: rgba(255, 255, 255, 0.40);
+border-radius: 16px;
+box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.4);
+backdrop-filter: blur(5.6px);
+-webkit-backdrop-filter: blur(5.6px);
+}
+.glass3{
+
+background: rgba(255, 255, 255, 0.70);
+border-radius: 0px;
+box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 0px solid rgba(255, 255, 255, 0.3);
+}
+
+</style>
+
+<nav class="navbar navbar-expand-lg sticky-top glass shadow-lg" data-bs-theme="dark">
   <div class="container">
     <a class="navbar-brand" href="/">
       <%= image_tag("logo.png", alt: "Logo", class: "logo-img", style: "width: 180px;") %>
