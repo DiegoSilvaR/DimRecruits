@@ -73,25 +73,6 @@ canvas{
   z-index:-1;
 }
     </style>
-  </head>
-  <body class="full-screen-background" style="font-family: 'Poppins', sans-serif;">
-    <%= render "shared/navbar" %>
-      <div class="d-flex position-fixed">
-            <div class="d-flex flex-column icon-container shadow shadow-lg p-3" id="socialWrap">
-              <%= image_tag("chile.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
-               <%= image_tag("colombia.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
-              <%= image_tag("peru.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
-            </div>
-          </div>
-      <div class="container">
-        <%= yield %>
-      </div>
-    <footer class="fixed-bottom py-3 glass">
-        <div class="text-center d-flex justify-content-center">
-            <label class="text-decoration-none text-secondary opacity-50" style="font-size:12px">Dimensión S.A. ® Todos los derechos reservados</label>
-        </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/19e2a818fa.js" crossorigin="anonymous"></script>
 <script>
   var SEPARATION = 40,
   AMOUNTX = 130,
@@ -207,5 +188,25 @@ function render() {
 }
 
 </script>
+  </head>
+  <body class="full-screen-background" style="font-family: 'Poppins', sans-serif;">
+    <%= render "shared/navbar" %>
+      <div class="d-flex position-fixed">
+            <div class="d-flex flex-column icon-container shadow shadow-lg p-3" id="socialWrap">
+              <%= image_tag("chile.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
+               <%= image_tag("colombia.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
+              <%= image_tag("peru.png", alt: "Logo", class: "my-2", style: "width: 30px;") %>
+            </div>
+          </div>
+      <div class="container">
+        <%= yield %>
+      </div>
+    <footer class="fixed-bottom py-3 glass">
+        <div class="text-center d-flex justify-content-center">
+            <label class="text-decoration-none text-secondary opacity-50" style="font-size:12px">Dimensión S.A. ® Todos los derechos reservados</label>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/19e2a818fa.js" crossorigin="anonymous"></script>
+
   </body>
 </html>
