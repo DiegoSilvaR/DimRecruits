@@ -134,13 +134,10 @@ function init() {
     particles = new Array();
 
     var PI2 = Math.PI * 2;
-    var material = new THREE.SpriteCanvasMaterial({
+    var material = new THREE.SpriteMaterial({  // Use THREE.SpriteMaterial
         color: 0x939393,
-        program: function (context) {
-            context.beginPath();
-            context.arc(0, 0, 0.1, 0, PI2, true);
-            context.fill();
-        }
+        transparent: true,  // Enable transparency
+        opacity: 0.7  // Set opacity level (adjust as needed)
     });
 
     var i = 0;
@@ -187,7 +184,6 @@ function render() {
     renderer.render(scene, camera);
     count += 0.2;
 }
-
     </script>
 <script src="https://kit.fontawesome.com/19e2a818fa.js" crossorigin="anonymous"></script>
   </body>
