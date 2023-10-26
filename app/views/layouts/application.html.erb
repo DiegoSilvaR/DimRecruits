@@ -147,7 +147,8 @@ function init() {
 
 	var PI2 = Math.PI * 2;
 	var material = new THREE.SpriteCanvasMaterial( {
-
+    transparent: true, 
+    opacity: 0.7,
 		color: 0x939393, //changes color of particles
 		program: function ( context ) {
 
@@ -225,7 +226,6 @@ function render() {
 	count += 0.2;
 
 }
-
 
         </script>
 <script src="https://kit.fontawesome.com/19e2a818fa.js" crossorigin="anonymous"></script>
