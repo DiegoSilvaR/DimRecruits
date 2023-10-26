@@ -174,18 +174,20 @@ function animate() {
 }
 
 function render() {
-    var i = 0;
-    for (var ix = 0; ix < AMOUNTX; ix++) {
-        for (var iy = 0; iy < AMOUNTY; iy++) {
-            particle = particles[i++];
-            particle.position.y = (Math.sin((ix + count) * 0.5) * 20) + (Math.sin((iy + count) * 0.5) * 20);
-            // Set the scale to maintain the original size
-            particle.scale.set(1, 1, 1);
-        }
-    }
-    renderer.render(scene, camera);
-    count += 0.2;
-}
+
+	var i = 0;
+
+	for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
+
+		for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
+
+			particle = particles[ i++ ];
+			particle.position.y = ( Math.sin( ( ix + count ) * 0.5 ) * 20 ) + ( Math.sin( ( iy + count ) * 0.5 ) * 20 );
+			particle.scale.x = particle.scale.y = ( Math.sin( ( ix + count ) * 0.3 ) + 2 ) * 4 + ( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 4;
+
+		}
+
+	}
 
         </script>
 <script src="https://kit.fontawesome.com/19e2a818fa.js" crossorigin="anonymous"></script>
