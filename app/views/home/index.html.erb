@@ -149,7 +149,7 @@ section.fun-section-menu {
   -padding-top: 50px;
   position: fixed;
   top: 50%;
-  left: 30px;
+  right: 30px;
 }
 
 .fun-menu-open,
@@ -163,7 +163,7 @@ section.fun-section-menu {
 .fun-menu-open {
   padding: 1rem;
   margin-top: -1rem;
-  margin-right: 5rem;
+  margin-left: 5rem;
   float: right;
   background: #fff;
   border-radius: 50%;
@@ -183,20 +183,20 @@ section.fun-section-menu {
 }
 
 .fun-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
-  -right: 0;
-  left: 0;
+  right: 0;
+  -left: 0;
   width: 17.5rem;
   height: 100%;
   background: #212121;
   box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.16), -4px 0px 6px rgba(0, 0, 0, 0.23);
-  transition: left 0.45s cubic-bezier(0.4, 0, 1, 1);
+  transition: right 0.45s cubic-bezier(0.4, 0, 1, 1);
 }
 
 .fun-sidebar-hidden {
-  -right: -17.875rem;
-  left: -17.875rem;
+  right: -17.875rem;
+  -left: -17.875rem;
 }
 
 .fun-nav-list,
