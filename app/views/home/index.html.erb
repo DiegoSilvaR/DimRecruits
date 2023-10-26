@@ -144,6 +144,113 @@
     margin: 0;
     padding: 0;
 }
+section.fun-section-menu {
+  -position: relative;
+  -padding-top: 50px;
+  position: fixed;
+  top: 50%;
+  left: 30px;
+}
+
+.fun-menu-open,
+.fun-menu-close {
+  display: block;
+  font-size: 1.5rem;
+  color: #212121;
+  cursor: pointer;
+}
+
+.fun-menu-open {
+  padding: 1rem;
+  margin-top: -1rem;
+  margin-right: 5rem;
+  float: right;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+}
+.fun-menu-open:focus,
+.fun-menu-open:hover,
+.fun-menu-open.hover {
+  color: #575757;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.fun-menu-close {
+  line-height: 29px;
+  text-align: center;
+}
+
+.fun-sidebar {
+  position: absolute;
+  top: 0;
+  -right: 0;
+  left: 0;
+  width: 17.5rem;
+  height: 100%;
+  background: #212121;
+  box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.16), -4px 0px 6px rgba(0, 0, 0, 0.23);
+  transition: left 0.45s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.fun-sidebar-hidden {
+  -right: -17.875rem;
+  left: -17.875rem;
+}
+
+.fun-nav-list,
+.nav-media {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.fun-nav-list li {
+  border-bottom: 1px solid #424242;
+}
+
+.nav-link,
+.nav-media a {
+  display: block;
+  color: #fff;
+  transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+}
+.nav-link:focus,
+.nav-link:hover,
+.nav-link:active,
+.nav-media a:focus,
+.nav-media a:hover,
+.nav-media a:active {
+  text-decoration: none;
+  color: #2196f3;
+}
+
+.nav-link {
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  font-size: 1.2rem;
+}
+.nav-link:focus,
+.nav-link:hover,
+.nav-link:active {
+  background: #424242;
+}
+
+.nav-media {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.nav-media li:nth-of-type(n + 2) {
+  margin-left: 1.5rem;
+}
 
 </style>
 
@@ -240,7 +347,43 @@
      
 </section>
     </div>
+<div class="col-lg-4 container-fluid">
+    <section class="fun-section-menu">
+  <span class="fun-js-menu fun-menu-open fa fa-bars"></span>
+</section>
 
+<aside class="fun-js-sidebar fun-sidebar fun-sidebar-hidden">
+  <nav>
+    <ul class="fun-nav-list">
+      <li>
+        <a class="fun-js-menu nav-link fun-menu-close fa fa-close" href="#"></a>
+      </li>
+
+      <li><a class="nav-link" href="#">Home</a></li>
+
+      <li><a class="nav-link" href="#">Work</a></li>
+
+      <li><a class="nav-link" href="#">Noise</a></li>
+
+      <li><a class="nav-link" href="#">Labs</a></li>
+
+      <li><a class="nav-link" href="#">Contact</a></li>
+    </ul>
+
+    <ul class="nav-media">
+      <li>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+
+      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+    </ul>
+  </nav>
+</aside>
+</div>
 
 
 <div class="offcanvas offcanvas-end glass" style="width: 33%;" data-bs-backdrop="static" tabindex="-1" id="slide1a" aria-labelledby="staticBackdropLabel">
@@ -352,4 +495,38 @@
         }
 
         updateDate();
+
+(function() {
+  'use strict';
+  
+  var menuIcon = document.querySelectorAll('.fun-js-menu');
+  
+  for (var i = 0, j = menuIcon.length; i<j; i++) {
+    menuIcon[i].addEventListener('click', function() {
+      var sidebar = document.querySelector('.fun-js-sidebar');
+      
+      sidebar.classList.toggle('fun-sidebar-hidden');
+    });
+  }
+  
+  // setTimeout(function() {
+  //   document.querySelector('.content').style.opacity = 1;
+  // }, 250)
+  
+//   setTimeout(function() {
+//     document.querySelector('.fun-js-menu-open').classList.toggle('hover');
+//   }, 1350)
+  
+//   setTimeout(function() {
+//     document.querySelector('.fun-js-menu-open').click();
+//   }, 1990)
+  
+  setTimeout(function() {
+    document.querySelector('.fun-js-menu-close').click();
+  }, 3750)
+  
+  // setTimeout(function() {
+  //   document.querySelector('.fun-js-menu-open').classList.toggle('hover');
+  // }, 4450)
+})();
     </script>
