@@ -497,17 +497,4 @@ section.fun-section-menu {
 
         updateDate();
 
-(function() {
-  'use strict';
-  
-  var menuIcon = document.querySelectorAll('.fun-js-menu');
-  
-  for (var i = 0, j = menuIcon.length; i<j; i++) {
-    menuIcon[i].addEventListener('click', function() {
-      var sidebar = document.querySelector('.fun-js-sidebar');
-      
-      sidebar.classList.toggle('fun-sidebar-hidden');
-    });
-  }
-})();
     </script>
